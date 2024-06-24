@@ -5,7 +5,6 @@ import { darkMinimalTilesImageryLayer } from "./controllers/tiles";
 import { MinimalViewer } from "./components/MinimalViewer";
 import { EarthquakeLayer } from "./layers/EarthquakeLayer/EarthquakeLayer";
 import { Entity } from "resium";
-import { Cartesian3 } from "cesium";
 
 export const MapContainer = memo(function MapContainer() {
   return (

@@ -6,8 +6,9 @@ import { CustomDataSource } from "resium";
 const ONE_DAY_MS = 86400000;
 
 const dateProps = {
-  startTime: new Date(Date.now() - 1 * ONE_DAY_MS),
+  startTime: new Date(Date.now() - 300 * ONE_DAY_MS),
   endTime: new Date(),
+  isInProd: true,
 };
 
 export const EarthquakeLayer = memo(function EarthquakeLayer() {

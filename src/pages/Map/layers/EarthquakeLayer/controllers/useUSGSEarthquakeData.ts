@@ -8,16 +8,16 @@ export type FEATURE_ITEM_TYPE = FEATURE_COLLECTION_TYPE["features"][0];
 interface USGSEarthquakeOptions {
   startTime?: Date;
   endTime?: Date;
+  isInProd?: boolean;
 }
 
-const isInProd = false;
-
 const getServerEndpoint = (startTime: string, endTime: string) =>
-  `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startTime}&endtime=${endTime}&limit=100`;
+  `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startTime}&endtime=${endTime}&limit=3000&orderby=magnitude`;
 
 export const useUSGSEarthquakeData = ({
   startTime,
   endTime,
+  isInProd,
 }: USGSEarthquakeOptions) => {
   const [data, setData] = useState<FEATURE_COLLECTION_TYPE | null>(
     sampleUSGSFeatureCollectionData
