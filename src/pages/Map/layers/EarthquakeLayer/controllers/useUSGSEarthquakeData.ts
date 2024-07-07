@@ -12,7 +12,7 @@ interface USGSEarthquakeOptions {
 }
 
 const getServerEndpoint = (startTime: string, endTime: string) =>
-  `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startTime}&endtime=${endTime}&limit=3000&orderby=magnitude`;
+  `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startTime}&endtime=${endTime}&limit=1000&orderby=magnitude`;
 
 export const useUSGSEarthquakeData = ({
   startTime,
@@ -29,9 +29,9 @@ export const useUSGSEarthquakeData = ({
     const formattedStartTime = startTime.toISOString().substring(0, 10);
     const formattedEndTime = endTime.toISOString().substring(0, 10);
 
-    fetch(getServerEndpoint(formattedStartTime, formattedEndTime))
-      .then((res) => res.json())
-      .then(setData);
+    // fetch(getServerEndpoint(formattedStartTime, formattedEndTime))
+    //   .then((res) => res.json())
+    //   .then(setData);
 
     setData(sampleUSGSFeatureCollectionData);
   }, [startTime, endTime]);

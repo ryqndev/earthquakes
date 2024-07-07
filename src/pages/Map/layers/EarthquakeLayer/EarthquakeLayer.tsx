@@ -6,7 +6,7 @@ import { CustomDataSource } from "resium";
 const ONE_DAY_MS = 86400000;
 
 const dateProps = {
-  startTime: new Date(Date.now() - 300 * ONE_DAY_MS),
+  startTime: new Date(Date.now() - 200 * ONE_DAY_MS),
   endTime: new Date(),
   isInProd: true,
 };

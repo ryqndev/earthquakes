@@ -8,13 +8,11 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "sort-keys-fix"],
+  plugins: ["react-refresh"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
-    "sort-keys-fix/sort-keys-fix": "error",
-    "react/jsx-sort-props": "warn",
   },
 };
