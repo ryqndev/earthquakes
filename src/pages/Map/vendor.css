@@ -3,6 +3,6 @@
  * this does not break any ToS agreement because we're not
  * using any Cesium ion services. They are all turned off.
  */
-.cesium-widget-credits{
-    display:none !important;
+.cesium-widget-credits {
+    display: none !important;
 }

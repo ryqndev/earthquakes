@@ -1,3 +1,4 @@
+import { viewerCesiumInspectorMixin } from "cesium";
 import { useCallback, useEffect, useState } from "react";
 import { useCesium } from "resium";
 
@@ -10,13 +11,18 @@ export const MouseEventLayer = () => {
     console.count("@ryqndev");
   }, []);
 
-  //   useEffect(() => {
-  //     // if (!viewer) return;
-  //     viewer?.scene.preRender.addEventListener(mouseEventListener);
 
-  //     return () => {
-  //       viewer?.scene.preRender.removeEventListener(mouseEventListener);
-  //     };
-  //   }, []);
+
+  useEffect(() => {
+
+    if (!viewer) return;
+
+    viewer.extend(viewerCesiumInspectorMixin);
+    //     viewer?.scene.preRender.addEventListener(mouseEventListener);
+
+    //     return () => {
+    //       viewer?.scene.preRender.removeEventListener(mouseEventListener);
+    //     };
+  }, []);
   return null;
 };

@@ -9,6 +9,7 @@ export const MinimalViewer = memo(function MinimalViewer(
 ) {
   return (
     <Viewer
+      terrainShadows={undefined}
       full
       baseLayerPicker={false}
       homeButton={false}

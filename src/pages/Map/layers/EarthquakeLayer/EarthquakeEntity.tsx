@@ -1,10 +1,9 @@
-import { Cartesian3, Color, NearFarScalar } from "cesium";
+import { Cartesian3, Color, HeightReference, NearFarScalar, PolylineDashMaterialProperty, PolylineGlowMaterialProperty } from "cesium";
 import { memo, useMemo } from "react";
-import { Billboard, Entity } from "resium";
+import { Billboard, Entity, PolylineGraphics } from "resium";
 import { FEATURE_ITEM_TYPE } from "./controllers/useUSGSEarthquakeData";
 
-/** for all earthquakes, just place it at a set height. Can use a better measurement later */
-const EARTHQUAKE_ENTITY_ALTITUDE = 0;
+const M_TO_KM = 1000;
 
 const colorScaledByMagnitude = (magnitude: number) => new Color(magnitude / 10, 0, (10 - magnitude) / 10,);
 
@@ -12,21 +11,20 @@ export const EarthquakeEntity = memo(function EarthquakeEntity({
   geometry,
   ...props
 }: FEATURE_ITEM_TYPE) {
-  // const { scene, viewer } = useCesium();
+
+  const surfacePosition = Cartesian3.fromDegrees(geometry.coordinates[0], geometry.coordinates[1], 0);
 
   const position = useMemo(
     () =>
       Cartesian3.fromDegrees(
         geometry.coordinates[0],
         geometry.coordinates[1],
-        EARTHQUAKE_ENTITY_ALTITUDE
+        geometry.coordinates[2] * -M_TO_KM,
       ),
     []
   );
 
-  // useEffect(() => {}, []);
 
-  //   console.log("", 255 * (props.properties.mag / 10));
   return (
     <>
       <Entity
@@ -37,12 +35,20 @@ export const EarthquakeEntity = memo(function EarthquakeEntity({
           pixelSize: props.properties.mag ** 3 / 25,
           color: colorScaledByMagnitude(props.properties.mag),
         }}
-        onClick={() => console.log("ayo")}
         position={position}
 
       >
+        <PolylineGraphics
+          positions={[position, surfacePosition]}
+          width={1}
+          material={new PolylineGlowMaterialProperty({
+            color: new Color(0, 1, 1),
+            glowPower: 1,
+          })}
+
+        />
       </Entity>
-      <Billboard image="" position={position}></Billboard>
+      {/* <Billboard image="" position={position}></Billboard> */}
     </>
 
   );

@@ -1,0 +1,29 @@
+.button {
+    display: grid;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    place-self: end;
+    place-content: center;
+
+    border: none;
+    background-color: transparent;
+}
+
+.container {
+    position: absolute;
+    background-color: #151515;
+    top: 20px;
+    right: 20px;
+    overflow: hidden;
+    display: grid;
+    grid-auto-flow: row;
+
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.modal {
+    max-height: calc(100vh - 80px);
+    max-width: calc(100vw - 80px);
+}
