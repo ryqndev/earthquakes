@@ -1,0 +1,9 @@
+.container {
+    padding: 8px;
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        cursor: pointer;
+    }
+}

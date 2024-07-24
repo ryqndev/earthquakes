@@ -1,6 +1,10 @@
 import { memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import cn from "./Settings.module.scss";
+import { TerrainToggle } from "./settings/TerrainToggle";
+import { RenderOnSurfaceToggle } from "./settings/RenderOnSurfaceToggle";
+import { ShowDepthLineToggle } from "./settings/ShowDepthLineToggle";
+import { ShowTectonicPlatesToggle } from "./settings/ShowTectonicPlatesToggle";
 
 interface SettingsPanelProps {
     open: boolean;
@@ -19,8 +23,14 @@ export const SettingsPanel = memo(function SettingsPanel({
                     initial={collapsedState}
                     animate={expandedState}
                     exit={collapsedState}
-                    className={cn.wrapper}
-                ></motion.div>
+                >
+                    <div className={cn.modal}>
+                        <RenderOnSurfaceToggle />
+                        <TerrainToggle />
+                        <ShowTectonicPlatesToggle />
+                        <ShowDepthLineToggle />
+                    </div>
+                </motion.div>
             )}
         </AnimatePresence>
     );
