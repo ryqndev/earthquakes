@@ -4,11 +4,12 @@ import {
     NearFarScalar,
     PolylineGlowMaterialProperty,
 } from "cesium";
-import { memo, useMemo, useState } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { Entity, PolylineGraphics } from "resium";
 import { FEATURE_ITEM_TYPE } from "./controllers/useUSGSEarthquakeData";
 import { EarthquakeTooltip } from "./components/EarthquakeTooltip";
 import { useBooleanState } from "../../../../controllers/useBooleanState";
+import { useMapSelectionStore } from "../../controllers/selection/map-selection-store";
 
 const KM_TO_M = 1000;
 
@@ -51,6 +52,11 @@ export const EarthquakeEntity = memo(function EarthquakeEntity({
         []
     );
 
+    const selectEntity = useMapSelectionStore((state) => state.selectEntity);
+    const select = useCallback(() => {
+        selectEntity(props.id);
+    }, []);
+
     return (
         <>
             <Entity
@@ -64,6 +70,7 @@ export const EarthquakeEntity = memo(function EarthquakeEntity({
                 position={renderOnSurface ? surfacePosition : position}
                 onMouseEnter={showTooltip}
                 onMouseLeave={hideTooltip}
+                onClick={select}
             >
                 {showDepthLine && (
                     <PolylineGraphics

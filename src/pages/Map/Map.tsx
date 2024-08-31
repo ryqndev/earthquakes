@@ -4,10 +4,10 @@ import { memo } from "react";
 import { MinimalViewer } from "./components/MinimalViewer";
 import { EarthquakeLayer } from "./layers/EarthquakeLayer/EarthquakeLayer";
 import { darkMinimalTilesImageryLayer } from "./controllers/tiles";
-import { Settings } from "./overlays/Settings/Settings";
 import { ImageryLayer } from "resium";
 import { ArcGisMapServerImageryProvider } from "cesium";
 import { useMapSettingsStore } from "./controllers/settings/useMapSettingsStore";
+import { Overlays } from "./overlays/Overlays";
 
 export const MapContainer = memo(function MapContainer() {
     const { showTectonicPlates } = useMapSettingsStore(
@@ -29,7 +29,8 @@ export const MapContainer = memo(function MapContainer() {
                 />
             )}
             <EarthquakeLayer />
-            <Settings />
+
+            <Overlays />
         </MinimalViewer>
     );
 });
