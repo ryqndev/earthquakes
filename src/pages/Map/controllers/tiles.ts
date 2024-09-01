@@ -7,9 +7,19 @@ import {
     WebMapServiceImageryProvider,
 } from "cesium";
 
-export const darkMinimalTilesImageryProvider = new UrlTemplateImageryProvider({
+const darkMinimalTilesImageryProvider = new UrlTemplateImageryProvider({
     url: "//{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
 });
+export const darkMinimalTilesImageryLayer = new ImageryLayer(
+    darkMinimalTilesImageryProvider
+);
+
+const lightMinimalTilesImageryProvider = new UrlTemplateImageryProvider({
+    url: "//{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+});
+export const lightMinimalTilesImageryLayer = new ImageryLayer(
+    lightMinimalTilesImageryProvider
+);
 
 export const GEBCO_PROVIDER = new WebMapServiceImageryProvider({
     url: "https://wms.gebco.net/mapserv?",
@@ -37,10 +47,6 @@ export const GEBCO_PROVIDER = new WebMapServiceImageryProvider({
 // });
 export const NASA_PLATES_PROVIDER = ArcGisMapServerImageryProvider.fromUrl(
     "//earthquake.usgs.gov/arcgis/rest/services/eq/map_plateboundaries/MapServer"
-);
-
-export const darkMinimalTilesImageryLayer = new ImageryLayer(
-    darkMinimalTilesImageryProvider
 );
 
 // export const PLATE_TECTONICS_IMAGERY_LAYER = ImageryLayer.fromProviderAsync(

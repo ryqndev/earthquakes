@@ -1,4 +1,8 @@
+import { Navbar } from "./components/Navbar/Navbar";
 import { MapContainer } from "./pages/Map/Map";
+import cn from "./App.module.scss";
+import "./theme/light_theme.scss";
+import "./theme/dark_theme.scss";
 
 function App() {
     console.log(
@@ -6,14 +10,9 @@ function App() {
     );
 
     return (
-        <div
-            style={{
-                padding: "64px 8px 8px 8px",
-                height: "100vh",
-                background: "#151515",
-                boxSizing: "border-box",
-            }}
-        >
+        // id is used for fullscreen API - not ref'ing bc I'm lazy
+        <div className={cn.container} id="app">
+            <Navbar />
             <MapContainer />
         </div>
     );

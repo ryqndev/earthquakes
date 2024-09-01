@@ -1,6 +1,6 @@
 # gvis
 
-(short for Geophysics VISualization - I'm lame)
+(short for Geophysics VISualization - but I've been calling it "jeeves")
 
 What originally spawned from a simple idea to visualize the USGS earthquake data in three-dimensional space (as I couldn't find one with a pretty UI) has evolved into an all-encompassing visualization for all things geo-physical related.
 

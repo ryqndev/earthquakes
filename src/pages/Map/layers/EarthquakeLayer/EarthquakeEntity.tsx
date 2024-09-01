@@ -4,7 +4,7 @@ import {
     NearFarScalar,
     PolylineGlowMaterialProperty,
 } from "cesium";
-import { memo, useCallback, useMemo, useRef } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { Entity, PolylineGraphics } from "resium";
 import { FEATURE_ITEM_TYPE } from "./controllers/useUSGSEarthquakeData";
 import { EarthquakeTooltip } from "./components/EarthquakeTooltip";

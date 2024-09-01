@@ -3,7 +3,6 @@ import "./vendor.css";
 import { memo } from "react";
 import { MinimalViewer } from "./components/MinimalViewer";
 import { EarthquakeLayer } from "./layers/EarthquakeLayer/EarthquakeLayer";
-import { darkMinimalTilesImageryLayer } from "./controllers/tiles";
 import { ImageryLayer } from "resium";
 import { ArcGisMapServerImageryProvider } from "cesium";
 import { useMapSettingsStore } from "./controllers/settings/useMapSettingsStore";
@@ -15,12 +14,9 @@ export const MapContainer = memo(function MapContainer() {
             showTectonicPlates,
         })
     );
+
     return (
-        <MinimalViewer
-            className={cn.container}
-            baseLayer={darkMinimalTilesImageryLayer}
-            targetFrameRate={60}
-        >
+        <MinimalViewer className={cn.container} targetFrameRate={60}>
             {showTectonicPlates && (
                 <ImageryLayer
                     imageryProvider={ArcGisMapServerImageryProvider.fromUrl(

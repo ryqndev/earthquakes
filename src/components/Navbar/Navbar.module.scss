@@ -1,0 +1,41 @@
+nav.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    .name {
+        display: grid;
+        place-self: center;
+        margin: 0;
+        font-family: "Roboto Mono", monospace;
+        font-size: 1.4em;
+        color: #888;
+    }
+
+    .panels {
+        display: grid;
+        place-content: center end;
+        height: 100%;
+
+        grid-auto-flow: column;
+        gap: 8px;
+
+        button {
+            background-color: transparent;
+            border-radius: 1px;
+            border: 1px solid #333;
+            text-transform: uppercase;
+            padding: 0 10px;
+            cursor: pointer;
+            height: 30px;
+            color: #333;
+            width: auto;
+
+            transition: border-color 150ms, color 150ms;
+
+            &.active {
+                color: white;
+                border-color: white;
+            }
+        }
+    }
+}

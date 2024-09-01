@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 import cn from "./EarthquakeTooltip.module.scss";
 import { FEATURE_ITEM_TYPE } from "../controllers/useUSGSEarthquakeData";
-import { Cartographic, SceneTransforms } from "cesium";
+import { Cartographic, Color, SceneTransforms } from "cesium";
 import { useCesium } from "resium";
 
 interface EarthquakeTooltipProps extends FEATURE_ITEM_TYPE {
