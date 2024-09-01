@@ -7,4 +7,7 @@ export interface MapSettingsStore {
 
     showTectonicPlates: boolean;
     toggleShowTectonicPlates: () => void;
+
+    showTerrain: boolean;
+    toggleShowTerrain: () => void;
 }

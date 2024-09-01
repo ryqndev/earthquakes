@@ -24,6 +24,9 @@ export const useMapSettingsStore = create<MapSettingsStore>()(
 
             showTectonicPlates: true,
             toggleShowTectonicPlates: toggle(set, "showTectonicPlates"),
+
+            showTerrain: false,
+            toggleShowTerrain: toggle(set, "showTerrain"),
         }),
         { name: "@ryqndev/map-settings" }
     )

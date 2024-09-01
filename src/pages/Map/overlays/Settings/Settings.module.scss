@@ -13,13 +13,13 @@
 .container {
     position: absolute;
     background-color: #151515;
-    top: 20px;
-    right: 20px;
+    top: 8px;
+    right: 8px;
     overflow: hidden;
     display: grid;
     grid-auto-flow: row;
 
-    border-radius: 8px;
+    border-radius: 1px;
     border: 1px solid #333;
 }
 
